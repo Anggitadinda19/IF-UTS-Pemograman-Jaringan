@@ -53,7 +53,9 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
     | purple | ungu |
     | brown | coklat |
    
-
+   Dalam fungsi send_color, server melakukan iterasi melalui setiap klien dalam clients. Setiap kali mengunjungi klien, server memilih secara acak sebuah indeks warna baru dari daftar warna dalam bahasa Inggris. Kemudian, mengambil kata warna yang sesuai dengan indeks yang dipilih tersebut. Pesan yang berisi kata warna tersebut dikirim ke klien menggunakan soket. Setelah itu, server memperbarui nilai yang terkait dengan klien dalam clients dengan indeks warna yang baru dikirim. Ini memungkinkan server untuk melacak warna mana yang telah dikirim ke setiap klien.
+   
+    ```sh
     def send_color(sock, clients):
         for client_addr, _ in clients.items():
             color_index = random.randint(0, len(colors_en) - 1)
@@ -62,6 +64,7 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
             sock.sendto(message, client_addr)
             print("Sent color:", color_en, "to", client_addr)
             clients[client_addr] = color_index  # Simpan indeks warna yang dikirim ke klien
+       ```
 
     def check_answer(sock, client_addr, answer, clients):
         color_en = colors_en[clients[client_addr]]
@@ -126,5 +129,6 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
                 print("Feedback dari server: Jawaban Anda salah! Nilai Anda 0.")
         
         ClientSocket.close()
-        sys.exit(0)```
+        sys.exit(0)
+   ```
    
