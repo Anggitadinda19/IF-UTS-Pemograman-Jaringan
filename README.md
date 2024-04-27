@@ -21,11 +21,16 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
 
 ## Source Code
 1. Server.py
+   Masukkan library yang dibutuhkan untuk membuat program ini
     ```sh
     import socket
     import random
     import time
+    ```
+
+    Warna - warna yang digunakan dalam program ini
     
+    ```sh
     colors_en = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'brown']
 
     color_translations = {
@@ -37,7 +42,18 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
         'purple': 'ungu',
         'brown': 'coklat'
     }
-    
+    ```
+    | Bahasa Inggris | Bahasa Indonesia |
+    | ------ | ------ |
+    | red | merah |
+    | blue | biru |
+    | green | hijau |
+    | yellow | kuning |
+    | orange | orange |
+    | purple | ungu |
+    | brown | coklat |
+   
+
     def send_color(sock, clients):
         for client_addr, _ in clients.items():
             color_index = random.randint(0, len(colors_en) - 1)
@@ -88,3 +104,27 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
     
     if __name__ == "__main__":
         main()```
+
+3. Client.py
+   ```sh
+       import socket
+        import sys
+        
+        ClientSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        host, port = '127.0.0.1', 12345
+        ClientSocket.sendto(b'', (host, port))
+        
+        while True:
+            color = ClientSocket.recvfrom(1024)[0].decode('utf-8')
+            print("Server mengirimkan warna:", color)
+            answer = input("Tebak warna ini (dalam bahasa Indonesia): ")
+            ClientSocket.sendto(str.encode(answer), (host, port))
+            feedback = ClientSocket.recvfrom(1024)[0].decode('utf-8')
+            if feedback == '100':
+                print("Feedback dari server: Jawaban Anda benar! Nilai Anda 100.")
+            else:
+                print("Feedback dari server: Jawaban Anda salah! Nilai Anda 0.")
+        
+        ClientSocket.close()
+        sys.exit(0)```
+   
