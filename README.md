@@ -156,3 +156,16 @@ Penjelasan:
 Kode tersebut adalah implementasi klien dalam protokol UDP yang berkomunikasi dengan server untuk permainan menebak warna. Saat pertama kali terhubung, klien mengirimkan pesan kosong ke server untuk memulai komunikasi. Selanjutnya, klien menerima kata warna dalam bahasa Inggris yang dikirimkan oleh server, menampilkan kata warna tersebut, dan meminta jawaban dari pengguna dalam bahasa Indonesia. Setelah pengguna memberikan jawaban, klien mengirimkannya kembali ke server. Klien kemudian menerima feedback dari server berupa nilai, yang menunjukkan kebenaran jawaban pengguna. Jika nilai yang diterima adalah '100', klien menampilkan pesan bahwa jawaban pengguna benar dengan nilai 100, jika tidak, klien menampilkan pesan bahwa jawaban pengguna salah dengan nilai 0. Proses ini berulang terus menerus hingga koneksi ditutup atau program dihentikan. Setelah selesai, socket klien ditutup dan program keluar.
 
 # Dokumentasi Output
+
+Output server melayani 10 client
+![reference image](5.png)
+
+Output server tetap berjalan ketika client tidak menjawab
+![reference image](3.png)
+![reference image](4.png)
+
+Output client menjawab dengan benar
+![reference image](1.png)
+
+Output client menjawab dengan salah
+![reference image](2.png)
