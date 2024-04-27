@@ -21,6 +21,7 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
 
 ## Source Code
 1. Server.py
+    ```sh
     import socket
     import random
     import time
@@ -86,4 +87,4 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
         server_socket.close()
     
     if __name__ == "__main__":
-        main()
+        main()```
