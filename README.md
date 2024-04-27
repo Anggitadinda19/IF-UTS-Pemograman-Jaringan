@@ -158,14 +158,14 @@ Kode tersebut adalah implementasi klien dalam protokol UDP yang berkomunikasi de
 # Dokumentasi Output
 
 Output server melayani 10 client
-![reference image](5.png)
+![reference image](/images/5.png)
 
 Output server tetap berjalan ketika client tidak menjawab
-![reference image](3.png)
-![reference image](4.png)
+![reference image](/images/3.png)
+![reference image](/images/4.png)
 
 Output client menjawab dengan benar
-![reference image](1.png)
+![reference image](/images/1.png)
 
 Output client menjawab dengan salah
-![reference image](2.png)
+![reference image](/images/2.png)
