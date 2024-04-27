@@ -155,3 +155,5 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
 Penjelasan:
 Kode tersebut adalah implementasi klien dalam protokol UDP yang berkomunikasi dengan server untuk permainan menebak warna. Saat pertama kali terhubung, klien mengirimkan pesan kosong ke server untuk memulai komunikasi. Selanjutnya, klien menerima kata warna dalam bahasa Inggris yang dikirimkan oleh server, menampilkan kata warna tersebut, dan meminta jawaban dari pengguna dalam bahasa Indonesia. Setelah pengguna memberikan jawaban, klien mengirimkannya kembali ke server. Klien kemudian menerima feedback dari server berupa nilai, yang menunjukkan kebenaran jawaban pengguna. Jika nilai yang diterima adalah '100', klien menampilkan pesan bahwa jawaban pengguna benar dengan nilai 100, jika tidak, klien menampilkan pesan bahwa jawaban pengguna salah dengan nilai 0. Proses ini berulang terus menerus hingga koneksi ditutup atau program dihentikan. Setelah selesai, socket klien ditutup dan program keluar.
 
+# Dokumentasi Output
+![reference image](images/Server berjalan sudah lebih dari 10 client.png)
