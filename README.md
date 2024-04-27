@@ -65,7 +65,9 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
             print("Sent color:", color_en, "to", client_addr)
             clients[client_addr] = color_index  # Simpan indeks warna yang dikirim ke klien
        ```
+   Fungsi check_answer bertanggung jawab untuk memeriksa jawaban yang diberikan oleh klien terhadap warna yang dikirimkan oleh server. Pertama, indeks warna yang dikirimkan ke klien diambil dari clients yang merupakan dictionary yang menyimpan alamat klien beserta indeks warna yang telah dikirimkan. Indeks ini digunakan untuk mengambil kata warna dalam bahasa Inggris (color_en). Selanjutnya, kata warna tersebut diterjemahkan ke dalam bahasa Indonesia menggunakan color_translations, menghasilkan color_id. Fungsi kemudian membandingkan jawaban klien dengan terjemahan warna tersebut. Jika jawaban klien sesuai dengan terjemahan, nilai feedback diatur menjadi b'100', yang menandakan jawaban benar, jika tidak, nilai feedback diatur menjadi b'0', menandakan jawaban salah. Feedback kemudian dikirim kembali ke klien melalui soket sock dengan menggunakan alamat klien client_addr.
 
+    ```sh
     def check_answer(sock, client_addr, answer, clients):
         color_en = colors_en[clients[client_addr]]
         color_id = color_translations[color_en]
@@ -74,6 +76,7 @@ Buatlah sebuah permainan yang menggunakan soket dan protokol UDP. Permainannya c
         else:
             feedback = b'0'  # Jika jawaban salah, berikan nilai 0
         sock.sendto(feedback, client_addr)
+       ```
     
     def main():
         server_address = ('localhost', 12345)
